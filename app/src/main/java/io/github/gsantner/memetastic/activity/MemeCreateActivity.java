@@ -226,7 +226,9 @@ public class MemeCreateActivity extends AppCompatActivity implements ColorPicker
         prepareForSaving();
         outState.putSerializable("memeObj", _memeEditorElements);
         outState.putBoolean("captionPosition", _isBottom);
-        outState.putBoolean("captionEditBar", _editBar.getVisibility() == View.VISIBLE);
+        if (_editBar != null) {
+            outState.putBoolean("captionEditBar", _editBar.getVisibility() == View.VISIBLE);
+        }
         outState.putString("captionText", _create_caption.getText().toString());
         this._savedInstanceState = outState;
     }
