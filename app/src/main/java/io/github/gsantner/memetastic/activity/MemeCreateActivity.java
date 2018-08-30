@@ -181,8 +181,10 @@ public class MemeCreateActivity extends AppCompatActivity implements ColorPicker
                 && savedInstanceState.containsKey("captionEditBar")
                 && savedInstanceState.containsKey("captionText")) {
             _isBottom = savedInstanceState.getBoolean("captionPosition");
-            _editBar.setVisibility(savedInstanceState.getBoolean("captionEditBar") ?
-                    View.VISIBLE : View.GONE);
+            if(_editBar != null) {
+                _editBar.setVisibility(savedInstanceState.getBoolean("captionEditBar") ?
+                        View.VISIBLE : View.GONE);
+            }
             _create_caption.setText(savedInstanceState.getString("captionText"));
         }
     }
